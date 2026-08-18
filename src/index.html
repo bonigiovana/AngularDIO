@@ -1,13 +1,66 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>AngularDIO</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>AngularDIO</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+    <script>
+            function voltarAoTopo() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+
+            function mudarFoto(btn, direcao) {
+                const container = btn.parentElement;
+                const carrossel = container.querySelector('.carrossel');
+                const larguraSlide = carrossel.clientWidth;
+
+                const posicaoAtual = carrossel.scrollLeft;
+                const maxScroll = carrossel.scrollWidth - carrossel.clientWidth - 10;
+
+                // Se avançar na última foto -> Volta para a primeira
+                if (direcao === 1 && posicaoAtual >= maxScroll) {
+                    carrossel.scrollTo({ left: 0, behavior: 'smooth' });
+                }
+                // Se voltar na primeira foto -> Vai para a última
+                else if (direcao === -1 && posicaoAtual <= 10) {
+                    carrossel.scrollTo({ left: carrossel.scrollWidth, behavior: 'smooth' });
+                }
+                // Avanço/Recuo normal
+                else {
+                    carrossel.scrollBy({ left: direcao * larguraSlide, behavior: 'smooth' });
+                }
+            }
+
+            // Ativa o roxo na barra lateral enquanto o usuário rola a página com o scroll do mouse
+            let isScrollingTimer;
+            window.addEventListener('scroll', () => {
+                document.body.classList.add('is-scrolling');
+                clearTimeout(isScrollingTimer);
+                isScrollingTimer = setTimeout(() => {
+                    document.body.classList.remove('is-scrolling');
+                }, 800);
+            });
+
+            // Animação de Onda Roxo Neon (Ripple) ao Clicar com o mouse
+            window.addEventListener('pointerdown', (e) => {
+                const ripple = document.createElement('div');
+                ripple.className = 'cursor-click-effect';
+                ripple.style.left = `${e.clientX}px`;
+                ripple.style.top = `${e.clientY}px`;
+                document.body.appendChild(ripple);
+
+                setTimeout(() => {
+                    ripple.remove();
+                }, 500);
+            });
+        </script>
+  </body>
 </html>
