@@ -1,59 +1,30 @@
-# AngularDIO
+# 🚀 Blog Pessoal & Portfólio em Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.4.
+Aplicação web interativa desenvolvida para o **Desafio de Projeto** do Bootcamp da **DIO**, utilizando **Angular**, **TypeScript** e **CSS3**.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📌 Sobre o Projeto
 
-```bash
-ng serve
-```
+O projeto foi construído transformando uma aplicação estática em uma **arquitetura moderna de componentes reutilizáveis** no Angular.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### 🧩 Componentes do Sistema:
+- **`HeaderComponent`**: Cabeçalho com foto de perfil, título e navegação.
+- **`IntroComponent`**: Citação em destaque e resumo da trajetória profissional.
+- **`AnivaultComponent`**: Apresentação completa do projeto AniVault (vídeo demonstrativo, arquitetura de código e links).
+- **`CertificadosComponent`**: Carrosséis de certificações técnicas e acadêmicas (DIO & UNICEP).
+- **`ExperienciaComponent`**: Trajetória profissional e momentos marcantes na LATAM MRO.
+- **`HobbiesComponent`**: Apresentação pessoal, família e hobbies (pintura em tela Akuma no Mi).
+- **`FooterComponent`**: Rodapé com redes sociais e botão interativo de voltar ao topo.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Tecnologias Utilizadas
+* **Angular** (Componentes Autônomos / Standalone)
+* **TypeScript**
+* **HTML5 & CSS3** (Vanilla CSS com Design System de temas)
+* **Node.js & Angular CLI**
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+✨ Desenvolvido por **[Giovana Boni](https://github.com/bonigiovana)**
