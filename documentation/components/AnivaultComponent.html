@@ -1,0 +1,661 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-dio documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">angular-dio documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  AnivaultComponent</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app/components/anivault/anivault.ts</code>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#api" class="nav-link"
+                role="tab" id="api-tab" data-bs-toggle="tab" data-link="api">API</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Componente responsavel por exibir a lista de projetos do AniVault no blog.</p>
+
+    </p>
+
+
+
+    <p class="comment">
+        <h3>Example</h3>
+    </p>
+    <div class="io-description">
+    </div>
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-anivault</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./anivault.css</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./anivault.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./anivault.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="../components/App.html" target="_self" >App</a></code>
+                                </li>
+                        </ul>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+            </div>
+        </section>
+</div>
+
+    <div class="tab-pane fade " id="api">    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#string" >string</a>
+                            </li>
+                            <li>
+                                <span class="reference-badge reference-badge--property" aria-hidden="true">P</span>
+                                <a href="#tituloProjeto" >tituloProjeto</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-sm table-bordered index-table">
+            <tbody>
+                <tr>
+                    <td class="col-md-3">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                    <td class="col-md-9">
+                        <ul class="index-list">
+                            <li>
+                                <span class="reference-badge reference-badge--method" aria-hidden="true">M</span>
+                                <a href="#abrirDetalhes" >abrirDetalhes</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abrirDetalhes"></a>
+                    <span class="name">
+                        <span ><b>abrirDetalhes</b></span>
+                        <a href="#abrirDetalhes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abrirDetalhes()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="23"
+                                    class="link-to-prism">src/app/components/anivault/anivault.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Métodos acionado ao clicar para abrir os detalhes do projeto</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="string"></a>
+                    <span class="name">
+                        <span ><b>string</b></span>
+                        <a href="#string"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;AniVault - Hub de Animes&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/anivault/anivault.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tituloProjeto"></a>
+                    <span class="name">
+                        <span ><b>tituloProjeto</b></span>
+                        <a href="#tituloProjeto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>unknown</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/components/anivault/anivault.ts:18</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Título principal exibido no card do Anivault.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+/**
+ * Componente responsavel por exibir a lista de projetos do AniVault no blog.
+ */
+@Component({
+  selector: &#x27;app-anivault&#x27;,
+  imports: [],
+  templateUrl: &#x27;./anivault.html&#x27;,
+  styleUrl: &#x27;./anivault.css&#x27;,
+})
+
+export class AnivaultComponent {
+
+/**
+ * Título principal exibido no card do Anivault.
+ */
+tituloProjeto string &#x3D; &#x27;AniVault - Hub de Animes&#x27;;
+
+/**
+ * Métodos acionado ao clicar para abrir os detalhes do projeto
+ */
+abrirDetalhes(): void {
+  console.console.log(&#x27;Abrindo detalhes do Anivault...&#x27;);
+
+}
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;!-- 🎬 APRESENTAÇÃO DO PROJETO ANIVAULT (Largura Total 100%) --&gt;
+  &lt;div class&#x3D;&quot;anivault-apresentacao&quot;&gt;
+    &lt;h3 class&#x3D;&quot;anivault-titulo&quot;&gt;AniVault — Do clássico ao lançamento: monte sua lista e ative o modo maratona!&lt;/h3&gt;
+
+    &lt;p class&#x3D;&quot;anivault-descricao&quot;&gt;
+      O &lt;strong&gt;AniVault&lt;/strong&gt; foi criado para ser o lugar perfeito onde os fãs de animes acompanham, organizam e compartilham suas maratonas! A plataforma entrega uma experiência imersiva e interativa: nela, você tem total controle do seu progresso, marcando cada anime já assistido, descobrindo novos lançamentos e subindo de nível em um &lt;strong&gt;ranking dinâmico que mostra quem mais maratona animes na plataforma&lt;/strong&gt;.
+    &lt;/p&gt;
+
+    &lt;p class&#x3D;&quot;anivault-descricao&quot;&gt;
+      Mais do que um simples catálogo, o AniVault é uma comunidade viva! Um ponto de encontro feito para conectar pessoas que amam esse universo, onde é possível trocar referências, postar resenhas, recomendar seus títulos favoritos e acompanhar o que a galera está assistindo no momento.
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- ⚡ TECH INSIGHT: EXPLICAÇÃO DO CÓDIGO --&gt;
+  &lt;div class&#x3D;&quot;tech-insight-box&quot;&gt;
+    &lt;div class&#x3D;&quot;tech-insight-header&quot;&gt;
+      &lt;span class&#x3D;&quot;tech-insight-icon&quot;&gt;⚡&lt;/span&gt;
+      &lt;span class&#x3D;&quot;tech-insight-title&quot;&gt;Arquitetura de Código: Infinite Scroll &amp; API REST&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;p class&#x3D;&quot;tech-insight-text&quot;&gt;
+      No vídeo abaixo, apresento a implementação do &lt;strong&gt;Infinite Scroll (paginação assíncrona)&lt;/strong&gt; da aplicação. O algoritmo monitora o evento de rolagem e dispara requisições assíncronas  para a API REST. À medida que o usuário navega, os dados das próximas páginas são requisitados e injetados dinamicamente no DOM até a renderização completa da categoria.
+    &lt;/p&gt;
+  &lt;/div&gt;
+
+  &lt;!-- 🎬 FILEIRA DUPLA: VÍDEO NA ESQUERDA + RECURSOS NA DIREITA  --&gt;
+  &lt;div class&#x3D;&quot;jornada-row&quot;&gt;
+    &lt;!-- 1º CARD: VÍDEO CODANDO --&gt;
+    &lt;figure class&#x3D;&quot;card-video&quot;&gt;
+      &lt;figcaption&gt;Carrossel de cod&lt;/figcaption&gt;
+      &lt;div class&#x3D;&quot;carrossel-container&quot;&gt;
+        &lt;div class&#x3D;&quot;carrossel&quot;&gt;
+          &lt;div class&#x3D;&quot;slide&quot;&gt;
+            &lt;video controls width&#x3D;&quot;100%&quot; style&#x3D;&quot;border-radius: 8px;&quot;&gt;
+              &lt;source src&#x3D;&quot;fotos/Carrosselcod.mp4&quot; type&#x3D;&quot;video/mp4&quot;&gt;
+              Seu navegador não suporta a exibição de vídeos.
+            &lt;/video&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/figure&gt;
+
+    &lt;!-- 🚀 PRÓXIMOS RECURSOS EM DESENVOLVIMENTO (Ao lado do Vídeo!) --&gt;
+    &lt;div class&#x3D;&quot;anivault-futuro&quot;&gt;
+      &lt;h4&gt;🚀 Próximos Recursos em Desenvolvimento:&lt;/h4&gt;
+      &lt;ul&gt;
+        &lt;li&gt;🎨 &lt;strong&gt;Redesign Visual &amp; Temas Personalizados:&lt;/strong&gt; Novas opções de layout, temas visuais e personalização da interface pelo usuário.&lt;/li&gt;
+        &lt;li&gt;🏆 &lt;strong&gt;Sistema de Ranking &amp; Conquistas:&lt;/strong&gt; Pontuações e troféus para quem acompanha mais episódios.&lt;/li&gt;
+        &lt;li&gt;💬 &lt;strong&gt;Hub da Comunidade:&lt;/strong&gt; Espaço interativo para resenhas, debates e indicações.&lt;/li&gt;
+        &lt;li&gt;⚡ &lt;strong&gt;Catálogo Vivo via API:&lt;/strong&gt; Dados, sinopses e lançamentos atualizados em tempo real.&lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 🔗 BARRA DE LINKS DO PROJETO ANIVAULT (Abaixo do Vídeo e dos Recursos!) --&gt;
+    &lt;div class&#x3D;&quot;anivault-links-bar&quot;&gt;
+      &lt;a href&#x3D;&quot;https://bonigiovana.github.io/AniVault/&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;btn-anivault-link&quot;&gt;
+        🌐 Acompanhe o desenvolvimento
+      &lt;/a&gt;
+      &lt;a href&#x3D;&quot;https://github.com/bonigiovana/AniVault&quot; target&#x3D;&quot;_blank&quot; class&#x3D;&quot;btn-anivault-link outline&quot;&gt;
+        💻 Ver Código-Fonte no GitHub
+      &lt;/a&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./anivault.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><!-- 🎬 APRESENTAÇÃO DO PROJETO ANIVAULT (Largura Total 100%) -->  <div class="anivault-apresentacao">    <h3 class="anivault-titulo">AniVault — Do clássico ao lançamento: monte sua lista e ative o modo maratona!</h3>    <p class="anivault-descricao">      O <strong>AniVault</strong> foi criado para ser o lugar perfeito onde os fãs de animes acompanham, organizam e compartilham suas maratonas! A plataforma entrega uma experiência imersiva e interativa: nela, você tem total controle do seu progresso, marcando cada anime já assistido, descobrindo novos lançamentos e subindo de nível em um <strong>ranking dinâmico que mostra quem mais maratona animes na plataforma</strong>.    </p>    <p class="anivault-descricao">      Mais do que um simples catálogo, o AniVault é uma comunidade viva! Um ponto de encontro feito para conectar pessoas que amam esse universo, onde é possível trocar referências, postar resenhas, recomendar seus títulos favoritos e acompanhar o que a galera está assistindo no momento.    </p>  </div>  <!-- ⚡ TECH INSIGHT: EXPLICAÇÃO DO CÓDIGO -->  <div class="tech-insight-box">    <div class="tech-insight-header">      <span class="tech-insight-icon">⚡</span>      <span class="tech-insight-title">Arquitetura de Código: Infinite Scroll & API REST</span>    </div>    <p class="tech-insight-text">      No vídeo abaixo, apresento a implementação do <strong>Infinite Scroll (paginação assíncrona)</strong> da aplicação. O algoritmo monitora o evento de rolagem e dispara requisições assíncronas  para a API REST. À medida que o usuário navega, os dados das próximas páginas são requisitados e injetados dinamicamente no DOM até a renderização completa da categoria.    </p>  </div>  <!-- 🎬 FILEIRA DUPLA: VÍDEO NA ESQUERDA + RECURSOS NA DIREITA  -->  <div class="jornada-row">    <!-- 1º CARD: VÍDEO CODANDO -->    <figure class="card-video">      <figcaption>Carrossel de cod</figcaption>      <div class="carrossel-container">        <div class="carrossel">          <div class="slide">            <video controls width="100%" style="border-radius: 8px;">              <source src="fotos/Carrosselcod.mp4" type="video/mp4">              Seu navegador não suporta a exibição de vídeos.            </video>          </div>        </div>      </div>    </figure>    <!-- 🚀 PRÓXIMOS RECURSOS EM DESENVOLVIMENTO (Ao lado do Vídeo!) -->    <div class="anivault-futuro">      <h4>🚀 Próximos Recursos em Desenvolvimento:</h4>      <ul>        <li>🎨 <strong>Redesign Visual & Temas Personalizados:</strong> Novas opções de layout, temas visuais e personalização da interface pelo usuário.</li>        <li>🏆 <strong>Sistema de Ranking & Conquistas:</strong> Pontuações e troféus para quem acompanha mais episódios.</li>        <li>💬 <strong>Hub da Comunidade:</strong> Espaço interativo para resenhas, debates e indicações.</li>        <li>⚡ <strong>Catálogo Vivo via API:</strong> Dados, sinopses e lançamentos atualizados em tempo real.</li>      </ul>    </div>    <!-- 🔗 BARRA DE LINKS DO PROJETO ANIVAULT (Abaixo do Vídeo e dos Recursos!) -->    <div class="anivault-links-bar">      <a href="https://bonigiovana.github.io/AniVault/" target="_blank" class="btn-anivault-link">        🌐 Acompanhe o desenvolvimento      </a>      <a href="https://github.com/bonigiovana/AniVault" target="_blank" class="btn-anivault-link outline">        💻 Ver Código-Fonte no GitHub      </a>    </div>  </div></div>'
+    var COMPONENTS = [{'name': 'AnivaultComponent', 'selector': 'app-anivault'},{'name': 'App', 'selector': 'app-root'},{'name': 'CertificadosComponent', 'selector': 'app-certificados'},{'name': 'ExperienciaComponent', 'selector': 'app-experiencia'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HobbiesComponent', 'selector': 'app-hobbies'},{'name': 'IntroComponent', 'selector': 'app-intro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'AnivaultComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'AnivaultComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

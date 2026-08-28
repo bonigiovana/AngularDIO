@@ -1,0 +1,853 @@
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --bg-fundo: #0f172a;         /* Fundo Grafite Noturno */
+    --bg-card: #1e293b;            /* Tom dos Cartões */
+    --cor-borda: #334155;        /* Borda Sutil */
+    --cor-azul: #3b82f6;           /* Azul Destaque Tech */
+    --cor-roxo: #7c3aed;           /* Roxo Violeta Escuro (Índigo Profundo) */
+    --cor-texto: #f8fafc;        /* Texto Claro */
+    --cor-subtexto: #94a3b8;       /* Texto Secundário */
+}
+
+*, html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Cursor Seta Arredondada Cartoon Roxo (Tamanho reduzido pela metade) */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path d="M 6 4 L 24 13 A 2 2 0 0 1 22 17 L 17 17 L 23 26 A 2 2 0 0 1 19 28 L 13 19 L 9 23 A 2 2 0 0 1 6 21 Z" fill="%23c4b5fd" stroke="%237c3aed" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>') 3 2, auto !important;
+}
+
+/* Cursor Seta Arredondada Roxo Neon em Links e Botões */
+a, button, input, label, select, summary, .btn-carrossel {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 32 32"><path d="M 6 4 L 24 13 A 2 2 0 0 1 22 17 L 17 17 L 23 26 A 2 2 0 0 1 19 28 L 13 19 L 9 23 A 2 2 0 0 1 6 21 Z" fill="%237c3aed" stroke="%23ffffff" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/></svg>') 3 2, pointer !important;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    max-width: 1600px;                   /* Tela expandida para caber os 4 cartões largos lado a lado */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: var(--bg-fundo);
+}
+
+/*  CABEÇALHO & FOTO DE PERFIL */
+header {
+    text-align: center;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--cor-borda);
+    margin-bottom: 30px;
+}
+
+#title {
+    color: var(--cor-texto);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+.foto-perfil {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--cor-roxo);
+    box-shadow: 0 0 22px rgba(124, 58, 237, 0.55);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.foto-perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 32px rgba(124, 58, 237, 0.85);
+}
+
+header p {
+    color: var(--cor-subtexto);
+    font-size: 1.05rem;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+header img {
+    border-radius: 50%;
+    border: 3px solid var(--cor-roxo);
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    margin: 15px 0;
+}
+
+/* NAVEGAÇÃO */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--cor-azul);
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* CITAÇÃO (blockquote) */
+blockquote {
+    background-color: var(--bg-card);
+    border-left: 4px solid var(--cor-azul);
+    color: var(--cor-subtexto);
+    border-radius: 0 8px 8px 0;
+    margin: 25px 0;
+    padding: 16px 20px;
+    font-style: italic;
+}
+
+/* GRADE DE CARTÕES & SEÇÕES (h2, h3, section, figure)*/
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+#hobbies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch;
+}
+
+#hobbies > h2,
+#hobbies > p {
+    flex: 0 0 100%;
+    width: 100%;
+}
+
+/* Larguras equilibradas: reduz Viagens e aumenta Família e Conexões */
+.card-familia {
+    flex: 0 1 315px;                     /* Cartão Família expandido */
+    min-width: 260px;
+}
+
+.card-hobbies {
+    flex: 0 1 315px;                     /* Cartão Hobbies */
+    min-width: 260px;
+}
+
+.card-viagens {
+    flex: 0 1 340px;                     /* Cartão Viagens ajustado (sem sobram laterais gigantes) */
+    min-width: 280px;
+}
+
+.card-conexoes {
+    flex: 0 1 315px;                     /* Cartão Conexões expandido */
+    min-width: 260px;
+}
+
+section > h2,
+section > h3,
+section > p {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+h2, h3 {
+    color: var(--cor-texto);
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+
+figure {
+    background-color: var(--bg-card);
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    padding: 18px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;                        /* Todos os cartões com a mesma altura idêntica */
+}
+
+figcaption, figure > p {
+    color: var(--cor-subtexto);
+    font-size: 0.98rem;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+/* CARROSSEL INTERATIVO COM SETAS */
+.carrossel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex: 1;                             /* Ocupa a mesma altura no container do cartão */
+}
+
+.carrossel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    gap: 0;
+    width: 100%;
+    scrollbar-width: none;               /* Esconde a barra no Firefox */
+}
+
+.carrossel::-webkit-scrollbar {
+    display: none;                       /* Esconde a barra no Chrome/Edge */
+}
+
+.slide {
+    flex: 0 0 100%;                      /* APENAS 1 FOTO VISÍVEL POR VEZ */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    scroll-snap-align: center;
+}
+
+.slide figcaption {
+    width: 100%;
+    color: var(--cor-subtexto);
+    font-size: 0.98rem;
+    margin-bottom: 12px;
+    text-align: left;
+    min-height: 55px;                    /* Alinha o início das fotos de todos os cartões */
+}
+
+.slide img, figure img {
+  width: 100%;
+  height: 400px;
+  object-fit: contain !important;
+  border-radius: 6px;
+  background-color: rgba(15, 23, 42, 0.4);
+}
+
+.foto-cavalo {
+    object-fit: contain !important;      /* Garante que a foto a cavalo apareça inteira sem cortar */
+    background-color: var(--bg-card);
+}
+
+/* BOTÕES DE SETAS INTERATIVAS (❮ e ❯) */
+.btn-carrossel {
+    position: absolute;
+    top: 50%;                            /* Centraliza as setas exatamente no meio da altura da foto */
+    transform: translateY(-50%);
+    background: rgba(15, 23, 42, 0.85);  /* Fundo noturno transparente */
+    color: var(--cor-azul);
+    border: 1px solid var(--cor-borda);
+    font-size: 1.3rem;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.btn-carrossel:hover {
+    background: var(--cor-azul);
+    color: #ffffff;
+    transform: translateY(-50%) scale(1.15);
+}
+
+.btn-carrossel.prev {
+    left: 8px;
+}
+
+.btn-carrossel.next {
+    right: 8px;
+}
+
+/* RODAPÉ & REDES SOCIAIS*/
+footer {
+    margin-top: 50px;
+    padding: 25px 0;
+    text-align: center;
+    border-top: 1px solid var(--cor-borda);
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+}
+
+footer a {
+    color: var(--cor-subtexto);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--cor-azul);
+    text-decoration: underline;
+}
+
+/* BARRA DE ROLAGEM PRINCIPAL (SCROLLBAR VERTICAL ROXA AO ROLAR) */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-fundo);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 6px;
+    border: 2px solid var(--bg-fundo);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Fica roxa quando o usuário move o scroll do mouse ou passa a seta por cima */
+body.is-scrolling::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb:hover {
+    background: var(--cor-roxo) !important;
+    box-shadow: 0 0 12px var(--cor-roxo);
+}
+
+/* ANIMAÇÃO E EFEITO VISUAL DE ONDA (NEON RIPPLE) AO CLICAR */
+.cursor-click-effect {
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    border: 3px solid var(--cor-roxo);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0.3);
+    pointer-events: none;
+    z-index: 999999;
+    animation: clickRipple 0.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+}
+
+@keyframes clickRipple {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.3);
+        box-shadow: 0 0 15px var(--cor-roxo);
+    }
+    50% {
+        opacity: 0.85;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(2.6);
+        box-shadow: 0 0 30px rgba(124, 58, 237, 0);
+    }
+}
+
+/* Faz o card do vídeo abraçar o vídeo perfeitamente (Igual ao Desenho!) */
+.card-video,
+.card-video .carrossel-container {
+  height: auto !important;
+  flex: none !important;
+}
+
+/*  🎬 CARD DE VÍDEO (FILEIRA PRÓPRIA & CENTRALIZADA)  */
+
+/* 🎬 FILEIRA DUPLA: VÍDEO + RECURSOS LADO A LADO      */
+
+.jornada-row {
+  grid-column: 1 / -1 !important;
+  display: grid;
+  grid-template-columns: 1.35fr 1fr; /* Vídeo na esquerda, Recursos na direita */
+  gap: 20px;
+  width: 100%;
+  max-width: 1150px; /* Expandido para acompanhar as margens vermelhas do texto principal */
+  margin: 0 auto 35px auto;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .jornada-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card-video {
+  grid-column: auto !important;
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
+  align-self: start !important;
+  height: auto !important;
+  padding: 14px !important;
+}
+
+.card-video .carrossel-container,
+.card-video .carrossel,
+.card-video .slide {
+  height: auto !important;
+  flex: none !important;
+}
+
+.card-video video {
+  width: 100% !important;
+  height: auto !important;
+  display: block;
+  border-radius: 8px;
+}
+
+/* 🎬 ESTILO DA APRESENTAÇÃO ANIVAULT (LARGURA TOTAL) */
+
+.anivault-apresentacao {
+  grid-column: 1 / -1 !important; /* Ocupa 100% da largura útil da tela! */
+  width: 100%;
+  max-width: 1150px; /* Expandido para acompanhar as margens vermelhas do texto principal */
+  margin: 10px auto 30px auto;
+  text-align: left;
+}
+
+.anivault-titulo {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 18px;
+  line-height: 1.3;
+}
+
+.anivault-descricao {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #cbd5e1;
+  margin-bottom: 16px;
+}
+
+/* 🚀 PRÓXIMOS RECURSOS (AO LADO DO VÍDEO) */
+.anivault-futuro {
+  grid-column: auto !important;
+  width: 100%;
+  max-width: 100% !important;
+  margin: 0 !important;
+  background-color: rgba(124, 58, 237, 0.08);
+  border: 1px solid rgba(124, 58, 237, 0.25);
+  border-radius: 12px;
+  padding: 22px 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.anivault-futuro h4 {
+  font-size: 1.1rem;
+  color: #a78bfa;
+  margin-bottom: 14px;
+}
+
+.anivault-futuro ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.anivault-futuro li {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  line-height: 1.5;
+}
+
+/*⚡ CARD TECH INSIGHT (ALINHADO COM MARGEM VERMELHA) */
+
+.tech-insight-box {
+  grid-column: 1 / -1 !important; /* Ocupa 100% da largura útil da tela! */
+  width: 100%;
+  max-width: 1150px; /* Expandido para alcançar a linha vermelha da margem do texto principal */
+  margin: 0 auto 30px auto;
+  background-color: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-left: 5px solid #a78bfa;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 8px 25px rgba(124, 58, 237, 0.15);
+  text-align: left;
+}
+
+.tech-insight-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.tech-insight-icon {
+  font-size: 1.2rem;
+}
+
+.tech-insight-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #a78bfa;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+.tech-insight-text {
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: #e2e8f0;
+  margin: 0;
+}
+
+/* Pílulas de código estilo Terminal */
+.tech-insight-text code {
+  background-color: rgba(124, 58, 237, 0.25);
+  color: #c4b5fd;
+  padding: 3px 8px;
+  border-radius: 5px;
+  font-family: 'Consolas', 'Fira Code', monospace;
+  font-size: 0.9rem;
+  border: 1px solid rgba(124, 58, 237, 0.4);
+}
+
+/* =================================================== */
+/* 📜 FILEIRA DE CERTIFICADOS COM LOGO CENTRAL COMPACTO */
+/* =================================================== */
+/* =================================================== */
+/* 📜 FILEIRA DE CERTIFICADOS (ALINHADA 100% COM O TEXTO) */
+/* =================================================== */
+/* =================================================== */
+/* 📜 FILEIRA DE CERTIFICADOS (EXTREMIDADES 1500PX)   */
+/* =================================================== */
+.certificados-row {
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  justify-content: space-between !important; /* Empurra Card 1 pra extrema esquerda e Card 2 pra extrema direita! */
+  align-items: center !important;
+  width: 100%;
+  max-width: 1500px !important; /* Expandido para a largura total das extremidades da tela (1500px) */
+  margin: 0 auto 40px auto !important;
+}
+
+@media (max-width: 950px) {
+  .certificados-row {
+    flex-direction: column !important;
+    gap: 30px !important;
+  }
+  .certificados-row .card-certificacao {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* 1. Cards de Certificados posicionados exatamente nas extremidades vermelhas */
+.certificados-row .card-certificacao {
+  width: 480px !important;
+  max-width: 480px !important;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 !important;
+}
+
+/* 2. Emblema SVG central TRANSPARENTE E EXPANDIDO (140PX) */
+.certificados-emblema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  flex-shrink: 0 !important;
+}
+
+.certificados-emblema svg {
+  width: 140px !important;
+  height: 140px !important;
+  filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.75)) drop-shadow(0 0 35px rgba(56, 189, 248, 0.4));
+  animation: floatEmblem 3s ease-in-out infinite;
+}
+
+@keyframes floatEmblem {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-8px) scale(1.05); }
+}
+
+
+/* 🏢 CARD LATAM MRO (CENTRALIZADO, AMPLO & ENCAIXADO) */
+.card-experiencia-latam {
+  grid-column: 1 / -1 !important; /* Ocupa a fileira inteira da seção */
+  width: 100%;
+  max-width: 850px; /* Largura ampla exatamente como o retângulo vermelho desenhado! */
+  margin: 25px auto 40px auto !important; /* Centraliza no meio da tela */
+  align-self: center !important;
+  height: auto !important;
+  padding: 18px !important;
+}
+
+.card-experiencia-latam .carrossel-container,
+.card-experiencia-latam .carrossel,
+.card-experiencia-latam .slide {
+  height: auto !important;
+  flex: none !important;
+}
+
+/* Título interno elegante do card LATAM */
+.card-latam-titulo {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #a78bfa;
+  margin-bottom: 12px;
+  text-align: left;
+  border-bottom: 1px solid rgba(167, 139, 250, 0.2);
+  padding-bottom: 8px;
+}
+
+.card-experiencia-latam .slide figcaption {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.card-experiencia-latam .slide img,
+.card-experiencia-latam .slide video {
+  width: 100% !important;
+  max-height: 520px !important;
+  height: auto !important;
+  object-fit: contain !important;
+  background-color: rgba(15, 23, 42, 0.5); /* Fundo original do card mantido */
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
+
+/* 🟣 BARRA DE ROLAGEM LATERAL & COR DO PLAYER NEON   */
+
+/* 1. Barra de Rolagem Lateral (Roxo/Azul Neon) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7c3aed, #3b82f6);
+  border-radius: 6px;
+  border: 2px solid #0f172a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #a78bfa, #60a5fa);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #7c3aed #0f172a;
+}
+
+/* 2. Barrinha de Progresso e Bolinha do Vídeo em ROXO NEON #a78bfa */
+video {
+  accent-color: #a78bfa !important;
+}
+
+/* Transforma a linha branca e a bolinha do player em Roxo Neon */
+video::-webkit-media-controls-timeline {
+  filter: sepia(100%) hue-rotate(235deg) saturate(700%) brightness(0.9) !important;
+}
+
+video::-webkit-media-controls-volume-slider {
+  filter: sepia(100%) hue-rotate(235deg) saturate(700%) brightness(0.9) !important;
+}
+
+video::-webkit-media-controls-current-time-display,
+video::-webkit-media-controls-time-remaining-display {
+  color: #a78bfa !important;
+  font-weight: 600;
+}
+
+
+/* 🌟 SEÇÃO ALÉM DO PROFISSIONAL (3 CARDS X 2 FILEIRAS) */
+#hobbies {
+  grid-column: 1 / -1 !important;
+  width: 100%;
+  max-width: 1500px !important; /* Mesma largura ampla de 1500px */
+  margin: 0 auto 40px auto !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* 3 CARDS EM CIMA + 3 CARDS EM BAIXO! */
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+#hobbies h2,
+#hobbies > p {
+  grid-column: 1 / -1 !important; /* Título e texto de apresentação ocupam a largura total */
+}
+
+/* Cada um dos 6 cards ocupa exatamente 1 coluna das 3 */
+#hobbies figure {
+  grid-column: span 1 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100% !important;
+}
+
+/* Enquadramento das fotos dentro dos cards de forma proporcional e preenchida */
+#hobbies .slide img {
+  width: 100% !important;
+  height: 420px !important; /* Altura perfeita para preencher o card de ponta a ponta */
+  object-fit: cover !important; /* Enquadra a foto 100% no card sem sobras pretas nas laterais! */
+  border-radius: 8px;
+  display: block;
+}
+
+@media (max-width: 1100px) {
+  #hobbies {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 700px) {
+  #hobbies {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Ajuste de enquadramento familia (pais e irmã) */
+.foto-familia-base {
+  object-position: center 35% !important;
+}
+
+/* =================================================== */
+/* 🔝 RODAPÉ & BOTÃO VOLTAR AO TOPO REDONDO ROXINHO   */
+/* =================================================== */
+footer {
+  margin-top: 50px;
+  padding: 25px 0;
+  border-top: 1px solid var(--cor-borda, #334155);
+}
+
+.footer-container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-container ul {
+  display: flex !important;
+  gap: 30px !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Botão Redondo Roxinho de Voltar ao Topo (Posicionado à Direita) */
+.btn-voltar-topo {
+  position: absolute !important;
+  right: 20px !important; /* Posicionado bem à direita no rodapé! */
+  left: auto !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important; /* Totalmente Redondo! */
+  background: linear-gradient(135deg, #7c3aed, #a78bfa) !important;
+  color: #ffffff !important;
+  border: 1px solid #a78bfa !important;
+  font-size: 1.25rem !important;
+  font-weight: bold !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 0 18px rgba(124, 58, 237, 0.65) !important;
+  transition: all 0.3s ease !important;
+  padding: 0 !important;
+}
+
+.btn-voltar-topo:hover {
+  background: linear-gradient(135deg, #a78bfa, #38bdf8) !important;
+  box-shadow: 0 0 26px rgba(167, 139, 250, 0.95) !important;
+  transform: translateY(-4px) scale(1.08) !important;
+}
+
+@media (max-width: 700px) {
+  .footer-container {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  .btn-voltar-topo {
+    position: static !important;
+  }
+}
+
+/* =================================================== */
+/* 🔗 BARRA DE LINKS DO ANIVAULT (ABAIXO DA FILEIRA DUPLA) */
+/* =================================================== */
+.anivault-links-bar {
+  grid-column: 1 / -1 !important; /* Ocupa a largura inteira abaixo dos dois cards */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 20px !important;
+  margin-top: 15px !important;
+  width: 100%;
+}
+
+.btn-anivault-link {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  padding: 12px 24px !important;
+  border-radius: 8px !important;
+  font-weight: 700 !important;
+  font-size: 0.98rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-shadow: 0 0 16px rgba(124, 58, 237, 0.4) !important;
+  transition: all 0.3s ease !important;
+  border: 1px solid rgba(167, 139, 250, 0.4) !important;
+}
+
+.btn-anivault-link:hover {
+  background: linear-gradient(135deg, #a78bfa, #38bdf8) !important;
+  box-shadow: 0 0 24px rgba(167, 139, 250, 0.8) !important;
+  transform: translateY(-3px) !important;
+}
+
+.btn-anivault-link.outline {
+  background: rgba(30, 41, 59, 0.85) !important;
+  color: #c4b5fd !important;
+  border: 1px solid rgba(167, 139, 250, 0.5) !important;
+}
+
+.btn-anivault-link.outline:hover {
+  background: rgba(124, 58, 237, 0.3) !important;
+  color: #ffffff !important;
+}
+
+@media (max-width: 850px) {
+  .anivault-links-bar {
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+  .btn-anivault-link {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}

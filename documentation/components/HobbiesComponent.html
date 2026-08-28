@@ -1,0 +1,686 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>angular-dio documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+          <script>
+              // --- Iframe navigation tracking for Template Playground ---
+              function sendCurrentUrlToParent() {
+                  if (window.parent && window.parent !== window) {
+                      window.parent.postMessage({
+                          type: 'compodoc-iframe-navigate',
+                          url: window.location.pathname + window.location.hash
+                      }, '*');
+                  }
+              }
+              window.addEventListener('hashchange', sendCurrentUrlToParent, false);
+              window.addEventListener('popstate', sendCurrentUrlToParent, false);
+              window.addEventListener('DOMContentLoaded', sendCurrentUrlToParent, false);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">angular-dio documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search">
+    <button type="button"
+        class="search-input-clear"
+        aria-label="Clear search"
+        data-search-input-clear>&times;</button>
+</div>
+            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  HobbiesComponent</li>
+</ol>
+
+<div class="io-file io-file-path" data-compodoc="entity-file-path">
+    <span class="icon ion-ios-document" aria-hidden="true"></span>
+    <code>src/app/components/hobbies/hobbies.ts</code>
+</div>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-hobbies</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./hobbies.css</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./hobbies.html</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrl</td>
+                <td class="col-md-9"><code>./hobbies.css</code></td>
+            </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+        <section data-compodoc="block-relationships">
+            <h3>Relationships</h3>
+
+            <div class="row pt-3">
+                <div class="col-sm-6">
+                    <h4>Used by</h4>
+                        <ul class="list-unstyled relationships-list">
+                                <li>
+                                            <code><a href="../components/App.html" target="_self" >App</a></code>
+                                </li>
+                        </ul>
+                </div>
+
+                <div class="col-sm-6">
+                    <h4>Depends on</h4>
+                        <p class="comment"><i>No results matching.</i></p>
+                </div>
+            </div>
+        </section>
+</div>
+
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component } from &#x27;@angular/core&#x27;;
+
+@Component({
+  selector: &#x27;app-hobbies&#x27;,
+  imports: [],
+  templateUrl: &#x27;./hobbies.html&#x27;,
+  styleUrl: &#x27;./hobbies.css&#x27;,
+})
+export class HobbiesComponent {}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section id&#x3D;&quot;hobbies&quot;&gt;
+            &lt;h2&gt;Além do profissional: Prazer, essa sou eu!&lt;/h2&gt;
+            &lt;p&gt;
+                Prazer, sou a &lt;strong&gt;Giovana Boni&lt;/strong&gt;! Tenho 28 anos, moro em São Carlos com a minha namorada Lorena e os nossos dois gatos, a Maeve e o Tião 🐱🐱.&lt;br&gt;
+                Nas minhas horas vagas, você provavelmente vai me encontrar jogando Valorant no Discord com os amigos, treinando os primeiros acordes no violão ou devorando um bom livro — atualmente estou lendo a saga &lt;em&gt;Percy Jackson e the Olympians&lt;/em&gt; em inglês para destravar minha leitura no idioma!&lt;br&gt;
+                 Gosto muito de pintura em tela e instrumentos musicais.&lt;br&gt;
+                Me considero uma pessoa extremamente dedicada e modéstia à parte, autodidata! Me permito sempre a conhecer e testar coisas novas e pratico até conseguir!
+
+            &lt;/p&gt;
+
+            &lt;!-- Card 1: Lorena --&gt;
+            &lt;figure class&#x3D;&quot;card-lorena&quot;&gt;
+                &lt;div class&#x3D;&quot;carrossel-container&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel prev&quot; onclick&#x3D;&quot;mudarFoto(this, -1)&quot;&gt;❮&lt;/button&gt;
+
+                    &lt;div class&#x3D;&quot;carrossel&quot;&gt;
+                        &lt;!-- Slide 1 --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Lorena &lt;/h3&gt;
+                                &lt;p&gt;Minha parceira de vida! A Lore é super extrovertida e soma tudo o que falta em mim! Nós duas somos ótimas juntas!&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/meuamor.jpeg&quot; alt&#x3D;&quot;Lorena foto 1&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 2 --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Lorena &amp; Amor&lt;/h3&gt;
+                                &lt;p&gt;Nossos momentos especiais juntas!&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/lore.jpeg&quot; alt&#x3D;&quot;Lorena foto 2&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 3 --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Lorena &amp; Amor&lt;/h3&gt;
+                                &lt;p&gt;Parceria e cumplicidade!&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/loreee.jpeg&quot; alt&#x3D;&quot;Lorena foto 3&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel next&quot; onclick&#x3D;&quot;mudarFoto(this, 1)&quot;&gt;❯&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;!-- Card 2: Gatos --&gt;
+            &lt;figure class&#x3D;&quot;card-gatos&quot;&gt;
+                &lt;div class&#x3D;&quot;carrossel-container&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel prev&quot; onclick&#x3D;&quot;mudarFoto(this, -1)&quot;&gt;❮&lt;/button&gt;
+
+                    &lt;div class&#x3D;&quot;carrossel&quot;&gt;
+                        &lt;!-- Slide 1: gatos 1 --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Meus Gatos&lt;/h3&gt;
+                                &lt;p&gt;Esses são os nossos filhotes de quatro patas: o Tião e a Maeve!&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/filhos.jpeg&quot; alt&#x3D;&quot;Meus gatos Tião e Maeve&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 2: Maeve --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Meus Gatos&lt;/h3&gt;
+                                &lt;p&gt;A dócil Maeve 🐱&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/maeve.jpeg&quot; alt&#x3D;&quot;maeve&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 3: Tião --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Meus Gatos&lt;/h3&gt;
+                                &lt;p&gt;O companheiro Tião 🐱&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/tiiao.jpeg&quot; alt&#x3D;&quot;tiao&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;button class&#x3D;&quot;btn-carrossel next&quot; onclick&#x3D;&quot;mudarFoto(this, 1)&quot;&gt;❯&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;!--Família--&gt;
+            &lt;figure class&#x3D;&quot;card-familia&quot;&gt;
+                &lt;div class&#x3D;&quot;carrossel-container&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel prev&quot; onclick&#x3D;&quot;mudarFoto(this, -1)&quot;&gt;❮&lt;/button&gt;
+                    &lt;div class&#x3D;&quot;carrossel&quot;&gt;
+
+                        &lt;!-- Slide 1: familia --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt; Família&lt;/h3&gt;
+                                &lt;p&gt;Essa é minha família, meu alicerce!&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img class&#x3D;&quot;foto-familia-base&quot; src&#x3D;&quot;fotos/minha base.jpeg&quot; alt&#x3D;&quot;minha base&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 2: gugu --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                             &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt; Família&lt;/h3&gt;
+                            &lt;p&gt;Esse é meu irmão, apesar de morar longe da gente, está sempre pertinho no coração!&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/gugu.jpg&quot; alt&#x3D;&quot;irmão&quot;&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel next&quot; onclick&#x3D;&quot;mudarFoto(this, 1)&quot;&gt;❯&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;!-- Card 1: Hobbies --&gt;
+            &lt;figure class&#x3D;&quot;card-hobbies&quot;&gt;
+                &lt;div class&#x3D;&quot;carrossel-container&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel prev&quot; onclick&#x3D;&quot;mudarFoto(this, -1)&quot;&gt;❮&lt;/button&gt;
+                    &lt;div class&#x3D;&quot;carrossel&quot;&gt;
+
+                        &lt;!-- Slide 1: Akuma no Mi --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt; Hobbies&lt;/h3&gt;
+                                &lt;p&gt;Essa tela que pintei é uma Akumanomi de One Piece, um anime que sou muito fã!&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/akumanomi.jpeg&quot; alt&#x3D;&quot;Pintura Akuma no Mi&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 2: Segunda Tela --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                             &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt; Hobbies&lt;/h3&gt;
+                            &lt;p&gt;Nesta tela, usei a diferença de personalidade entre Lore e eu como inspiração!&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/pintura.jpeg&quot; alt&#x3D;&quot;Minha pintura em tela&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!--Slide 3: Desenho--&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                             &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt; Hobbies&lt;/h3&gt;
+                            &lt;p&gt;Além de pintura em tela, gosto muito de desenhar.&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/desnho.jpeg&quot; alt&#x3D;&quot;Desenho&quot;&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel next&quot; onclick&#x3D;&quot;mudarFoto(this, 1)&quot;&gt;❯&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;!-- Card 2: Viagens --&gt;
+            &lt;figure class&#x3D;&quot;card-viagens&quot;&gt;
+                &lt;div class&#x3D;&quot;carrossel-container&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel prev&quot; onclick&#x3D;&quot;mudarFoto(this, -1)&quot;&gt;❮&lt;/button&gt;
+                    &lt;div class&#x3D;&quot;carrossel&quot;&gt;
+
+                        &lt;!-- Slide 1: Bueno Brandão --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                             &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Viagens&lt;/h3&gt;
+                            &lt;p&gt;Tirei esta foto em uma viagem para um chalé incrível em Bueno Brandão, MG:&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/buenobrandao.jpeg&quot; alt&#x3D;&quot;Bueno Brandão&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 2: Natureza --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                             &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Viagens&lt;/h3&gt;
+                            &lt;p&gt;Bueno Brandão, MG:&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/natureza.jpeg&quot; alt&#x3D;&quot;Natureza&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 3: Passeio a cavalo --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Viagens&lt;/h3&gt;
+                                &lt;p&gt;Passeio a cavalo.&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img class&#x3D;&quot;foto-cavalo&quot; src&#x3D;&quot;fotos/paseio a cavalo MG.jpeg&quot; alt&#x3D;&quot;passeio&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 4: Beto Carrero --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                 &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Viagens&lt;/h3&gt;
+                            &lt;p&gt;Beto Carrero.&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/betocarreiro.jpeg&quot; alt&#x3D;&quot;Beto Carrero&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 5: Curitiba --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                 &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Viagens&lt;/h3&gt;
+                            &lt;p&gt;Jardim Botânico em Curitiba!&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/curitiiba.jpeg&quot; alt&#x3D;&quot;Curitiba&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 6: Cruzeiro MSC --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                 &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Viagens&lt;/h3&gt;
+                            &lt;p&gt;Não posso deixar de mencionar o Cruzeiro que fizemos quando a Lore se formou em Farmácia para comemorar o diploma!&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/msc.jpeg&quot; alt&#x3D;&quot;Cruzeiro MSC&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 7: Foto Cruzeiro Editada --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                 &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Viagens&lt;/h3&gt;
+                            &lt;p&gt;Ainda sobre o Cruzeiro que fizemos!&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/passarela.jpg&quot; alt&#x3D;&quot;Cruzeiro Vista&quot;&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel next&quot; onclick&#x3D;&quot;mudarFoto(this, 1)&quot;&gt;❯&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/figure&gt;
+
+            &lt;!-- Card 3: Conexões --&gt;
+            &lt;figure class&#x3D;&quot;card-conexoes&quot;&gt;
+                &lt;div class&#x3D;&quot;carrossel-container&quot;&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel prev&quot; onclick&#x3D;&quot;mudarFoto(this, -1)&quot;&gt;❮&lt;/button&gt;
+                    &lt;div class&#x3D;&quot;carrossel&quot;&gt;
+
+                        &lt;!-- Slide 1: Trio --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Conexões&lt;/h3&gt;
+                                &lt;p&gt;Começando pelo famoso &quot;trio&quot;. Essas são a Aninha e a minha xará Giovana.&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/nois.jpeg&quot; alt&#x3D;&quot;trio&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!--Slide 2: Aninha--&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Conexões&lt;/h3&gt;
+                            &lt;p&gt; aninha é a pessoa mais parecida comigo NO MUNDO e uma das minhas pessoas favoritas!&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/aninha.jpeg&quot; alt&#x3D;&quot;Aninha&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 3: Casamento Gio --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Conexões&lt;/h3&gt;
+                            &lt;p&gt;Gio e eu no dia mais importante da vida dela!&lt;/p&gt;
+                            &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/casamentogio.jpeg&quot; alt&#x3D;&quot;casamento gio&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 4: Gui --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Conexões&lt;/h3&gt;
+                            &lt;p&gt;O Gui é um grande amigo da Lore que acabou ocupando um espaço muito importante na minha vida.&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/amores.jpeg&quot; alt&#x3D;&quot;mores&quot;&gt;
+                        &lt;/div&gt;
+
+
+                        &lt;!-- Slide 5: Lucas --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Conexões&lt;/h3&gt;
+                            &lt;p&gt;Este é o Lucas, um dos meus melhores amigos, o Lucas é... uma incógnita, mas uma das melhores pessoas que já conheci.&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/val.jpeg&quot; alt&#x3D;&quot;val&quot;&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Slide 6: Carol --&gt;
+                        &lt;div class&#x3D;&quot;slide&quot;&gt;
+                            &lt;figcaption&gt;
+                                &lt;h3 class&#x3D;&quot;titulo-slide&quot;&gt;Conexões&lt;/h3&gt;
+                            &lt;p&gt;E essa é a Carol, minha irmã de alma! Nos conhecemos ainda crianças e mantemos uma amizade como se o tempo não tivesse passado.&lt;/p&gt;
+                        &lt;/figcaption&gt;
+                            &lt;img src&#x3D;&quot;fotos/carol.jpeg&quot; alt&#x3D;&quot;Carol&quot;&gt;
+                        &lt;/div&gt;
+
+                    &lt;/div&gt;
+                    &lt;button class&#x3D;&quot;btn-carrossel next&quot; onclick&#x3D;&quot;mudarFoto(this, 1)&quot;&gt;❯&lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/figure&gt;
+        &lt;/section&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./hobbies.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis-network.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section id="hobbies">            <h2>Além do profissional: Prazer, essa sou eu!</h2>            <p>                Prazer, sou a <strong>Giovana Boni</strong>! Tenho 28 anos, moro em São Carlos com a minha namorada Lorena e os nossos dois gatos, a Maeve e o Tião 🐱🐱.<br>                Nas minhas horas vagas, você provavelmente vai me encontrar jogando Valorant no Discord com os amigos, treinando os primeiros acordes no violão ou devorando um bom livro — atualmente estou lendo a saga <em>Percy Jackson e the Olympians</em> em inglês para destravar minha leitura no idioma!<br>                 Gosto muito de pintura em tela e instrumentos musicais.<br>                Me considero uma pessoa extremamente dedicada e modéstia à parte, autodidata! Me permito sempre a conhecer e testar coisas novas e pratico até conseguir!            </p>            <!-- Card 1: Lorena -->            <figure class="card-lorena">                <div class="carrossel-container">                    <button class="btn-carrossel prev" onclick="mudarFoto(this, -1)">❮</button>                    <div class="carrossel">                        <!-- Slide 1 -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Lorena </h3>                                <p>Minha parceira de vida! A Lore é super extrovertida e soma tudo o que falta em mim! Nós duas somos ótimas juntas!</p>                            </figcaption>                            <img src="fotos/meuamor.jpeg" alt="Lorena foto 1">                        </div>                        <!-- Slide 2 -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Lorena & Amor</h3>                                <p>Nossos momentos especiais juntas!</p>                            </figcaption>                            <img src="fotos/lore.jpeg" alt="Lorena foto 2">                        </div>                        <!-- Slide 3 -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Lorena & Amor</h3>                                <p>Parceria e cumplicidade!</p>                            </figcaption>                            <img src="fotos/loreee.jpeg" alt="Lorena foto 3">                        </div>                    </div>                    <button class="btn-carrossel next" onclick="mudarFoto(this, 1)">❯</button>                </div>            </figure>            <!-- Card 2: Gatos -->            <figure class="card-gatos">                <div class="carrossel-container">                    <button class="btn-carrossel prev" onclick="mudarFoto(this, -1)">❮</button>                    <div class="carrossel">                        <!-- Slide 1: gatos 1 -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Meus Gatos</h3>                                <p>Esses são os nossos filhotes de quatro patas: o Tião e a Maeve!</p>                            </figcaption>                            <img src="fotos/filhos.jpeg" alt="Meus gatos Tião e Maeve">                        </div>                        <!-- Slide 2: Maeve -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Meus Gatos</h3>                                <p>A dócil Maeve 🐱</p>                            </figcaption>                            <img src="fotos/maeve.jpeg" alt="maeve">                        </div>                        <!-- Slide 3: Tião -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Meus Gatos</h3>                                <p>O companheiro Tião 🐱</p>                            </figcaption>                            <img src="fotos/tiiao.jpeg" alt="tiao">                        </div>                    </div>                    <button class="btn-carrossel next" onclick="mudarFoto(this, 1)">❯</button>                </div>            </figure>            <!--Família-->            <figure class="card-familia">                <div class="carrossel-container">                    <button class="btn-carrossel prev" onclick="mudarFoto(this, -1)">❮</button>                    <div class="carrossel">                        <!-- Slide 1: familia -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide"> Família</h3>                                <p>Essa é minha família, meu alicerce!</p>                            </figcaption>                            <img class="foto-familia-base" src="fotos/minha base.jpeg" alt="minha base">                        </div>                        <!-- Slide 2: gugu -->                        <div class="slide">                            <figcaption>                             <h3 class="titulo-slide"> Família</h3>                            <p>Esse é meu irmão, apesar de morar longe da gente, está sempre pertinho no coração!</p>                        </figcaption>                            <img src="fotos/gugu.jpg" alt="irmão">                        </div>                    </div>                    <button class="btn-carrossel next" onclick="mudarFoto(this, 1)">❯</button>                </div>            </figure>            <!-- Card 1: Hobbies -->            <figure class="card-hobbies">                <div class="carrossel-container">                    <button class="btn-carrossel prev" onclick="mudarFoto(this, -1)">❮</button>                    <div class="carrossel">                        <!-- Slide 1: Akuma no Mi -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide"> Hobbies</h3>                                <p>Essa tela que pintei é uma Akumanomi de One Piece, um anime que sou muito fã!</p>                            </figcaption>                            <img src="fotos/akumanomi.jpeg" alt="Pintura Akuma no Mi">                        </div>                        <!-- Slide 2: Segunda Tela -->                        <div class="slide">                            <figcaption>                             <h3 class="titulo-slide"> Hobbies</h3>                            <p>Nesta tela, usei a diferença de personalidade entre Lore e eu como inspiração!</p>                        </figcaption>                            <img src="fotos/pintura.jpeg" alt="Minha pintura em tela">                        </div>                        <!--Slide 3: Desenho-->                        <div class="slide">                            <figcaption>                             <h3 class="titulo-slide"> Hobbies</h3>                            <p>Além de pintura em tela, gosto muito de desenhar.</p>                        </figcaption>                            <img src="fotos/desnho.jpeg" alt="Desenho">                        </div>                    </div>                    <button class="btn-carrossel next" onclick="mudarFoto(this, 1)">❯</button>                </div>            </figure>            <!-- Card 2: Viagens -->            <figure class="card-viagens">                <div class="carrossel-container">                    <button class="btn-carrossel prev" onclick="mudarFoto(this, -1)">❮</button>                    <div class="carrossel">                        <!-- Slide 1: Bueno Brandão -->                        <div class="slide">                            <figcaption>                             <h3 class="titulo-slide">Viagens</h3>                            <p>Tirei esta foto em uma viagem para um chalé incrível em Bueno Brandão, MG:</p>                        </figcaption>                            <img src="fotos/buenobrandao.jpeg" alt="Bueno Brandão">                        </div>                        <!-- Slide 2: Natureza -->                        <div class="slide">                            <figcaption>                             <h3 class="titulo-slide">Viagens</h3>                            <p>Bueno Brandão, MG:</p>                        </figcaption>                            <img src="fotos/natureza.jpeg" alt="Natureza">                        </div>                        <!-- Slide 3: Passeio a cavalo -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Viagens</h3>                                <p>Passeio a cavalo.</p>                            </figcaption>                            <img class="foto-cavalo" src="fotos/paseio a cavalo MG.jpeg" alt="passeio">                        </div>                        <!-- Slide 4: Beto Carrero -->                        <div class="slide">                            <figcaption>                                 <h3 class="titulo-slide">Viagens</h3>                            <p>Beto Carrero.</p>                        </figcaption>                            <img src="fotos/betocarreiro.jpeg" alt="Beto Carrero">                        </div>                        <!-- Slide 5: Curitiba -->                        <div class="slide">                            <figcaption>                                 <h3 class="titulo-slide">Viagens</h3>                            <p>Jardim Botânico em Curitiba!</p>                        </figcaption>                            <img src="fotos/curitiiba.jpeg" alt="Curitiba">                        </div>                        <!-- Slide 6: Cruzeiro MSC -->                        <div class="slide">                            <figcaption>                                 <h3 class="titulo-slide">Viagens</h3>                            <p>Não posso deixar de mencionar o Cruzeiro que fizemos quando a Lore se formou em Farmácia para comemorar o diploma!</p>                        </figcaption>                            <img src="fotos/msc.jpeg" alt="Cruzeiro MSC">                        </div>                        <!-- Slide 7: Foto Cruzeiro Editada -->                        <div class="slide">                            <figcaption>                                 <h3 class="titulo-slide">Viagens</h3>                            <p>Ainda sobre o Cruzeiro que fizemos!</p>                        </figcaption>                            <img src="fotos/passarela.jpg" alt="Cruzeiro Vista">                        </div>                    </div>                    <button class="btn-carrossel next" onclick="mudarFoto(this, 1)">❯</button>                </div>            </figure>            <!-- Card 3: Conexões -->            <figure class="card-conexoes">                <div class="carrossel-container">                    <button class="btn-carrossel prev" onclick="mudarFoto(this, -1)">❮</button>                    <div class="carrossel">                        <!-- Slide 1: Trio -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Conexões</h3>                                <p>Começando pelo famoso "trio". Essas são a Aninha e a minha xará Giovana.</p>                            </figcaption>                            <img src="fotos/nois.jpeg" alt="trio">                        </div>                        <!--Slide 2: Aninha-->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Conexões</h3>                            <p> aninha é a pessoa mais parecida comigo NO MUNDO e uma das minhas pessoas favoritas!</p>                        </figcaption>                            <img src="fotos/aninha.jpeg" alt="Aninha">                        </div>                        <!-- Slide 3: Casamento Gio -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Conexões</h3>                            <p>Gio e eu no dia mais importante da vida dela!</p>                            </figcaption>                            <img src="fotos/casamentogio.jpeg" alt="casamento gio">                        </div>                        <!-- Slide 4: Gui -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Conexões</h3>                            <p>O Gui é um grande amigo da Lore que acabou ocupando um espaço muito importante na minha vida.</p>                        </figcaption>                            <img src="fotos/amores.jpeg" alt="mores">                        </div>                        <!-- Slide 5: Lucas -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Conexões</h3>                            <p>Este é o Lucas, um dos meus melhores amigos, o Lucas é... uma incógnita, mas uma das melhores pessoas que já conheci.</p>                        </figcaption>                            <img src="fotos/val.jpeg" alt="val">                        </div>                        <!-- Slide 6: Carol -->                        <div class="slide">                            <figcaption>                                <h3 class="titulo-slide">Conexões</h3>                            <p>E essa é a Carol, minha irmã de alma! Nos conhecemos ainda crianças e mantemos uma amizade como se o tempo não tivesse passado.</p>                        </figcaption>                            <img src="fotos/carol.jpeg" alt="Carol">                        </div>                    </div>                    <button class="btn-carrossel next" onclick="mudarFoto(this, 1)">❯</button>                </div>            </figure>        </section></div>'
+    var COMPONENTS = [{'name': 'AnivaultComponent', 'selector': 'app-anivault'},{'name': 'App', 'selector': 'app-root'},{'name': 'CertificadosComponent', 'selector': 'app-certificados'},{'name': 'ExperienciaComponent', 'selector': 'app-experiencia'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderComponent', 'selector': 'app-header'},{'name': 'HobbiesComponent', 'selector': 'app-hobbies'},{'name': 'IntroComponent', 'selector': 'app-intro'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'HobbiesComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'HobbiesComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var updateDarkModeSwitchOffset = function () {
+                    var content = document.querySelector('.content');
+                    var scrollbarWidth = 0;
+
+                    if (content) {
+                         scrollbarWidth = Math.max(0, content.offsetWidth - content.clientWidth);
+                    }
+
+                    document.documentElement.style.setProperty(
+                         '--content-scrollbar-width',
+                         scrollbarWidth + 'px'
+                    );
+               };
+
+               updateDarkModeSwitchOffset();
+               requestAnimationFrame(updateDarkModeSwitchOffset);
+               window.addEventListener('resize', updateDarkModeSwitchOffset);
+
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
