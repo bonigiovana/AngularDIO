@@ -9,5 +9,5 @@ Nesta pasta está a gravação demonstrando o processo de geração da documenta
 * **Visualização de Arquitetura e DOM:** Permitir a análise gráfica da árvore de elementos HTML e do fluxo de comunicação entre os componentes.
 * **Boas Práticas de Mercado:** Facilitar a manutenibilidade e demonstrar o funcionamento do projeto para avaliadores e recrutadores.
 
-▶️ **[Clique aqui para assistir ao vídeo da demonstração no navegador](https://github.com/bonigiovana/AngularDIO/raw/main/Javadoc/Javadoc.mp4)**
 
+![Demonstração da Documentação](Javadoc.gif)
