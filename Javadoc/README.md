@@ -10,4 +10,7 @@ Nesta pasta está a gravação demonstrando o processo de geração da documenta
 * **Boas Práticas de Mercado:** Facilitar a manutenibilidade e demonstrar o funcionamento do projeto para avaliadores e recrutadores.
 
 
-<video src="javadoc.mp4" controls width="100%"></video>
+## 📹 Vídeo de Demonstração:
+
+https://github.com/user-attachments/assets/a25c33ea-85e1-4c14-a2c9-b32ddba2fc87
+
