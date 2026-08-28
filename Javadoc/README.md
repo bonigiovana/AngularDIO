@@ -9,4 +9,3 @@ Nesta pasta está a gravação demonstrando o processo de geração da documenta
 
 ## 📹 Vídeo de Demonstração:
 
-<video src="javadoc.mp4" controls width="100%"></video>
